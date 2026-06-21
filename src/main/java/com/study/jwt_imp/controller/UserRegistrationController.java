@@ -1,6 +1,6 @@
 package com.study.jwt_imp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +18,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserRegistrationController {
 
-    @Autowired
+   
     private UserService userService;
+
+    public UserRegistrationController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping
     public ResponseEntity<String> registerUser(@RequestBody UserDto userDto) {
